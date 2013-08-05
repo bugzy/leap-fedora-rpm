@@ -44,15 +44,14 @@ sudo rpm -e Leap-0.8.0 # just in case
 sudo yum install -y RPMS/i686/Leap-0.8.0-x86.5300.f19.i686.rpm
 </pre>
 
-
 ## Using it ##
 
 I've demonized the leapd binary, for start the daemon use systemctl, e.g.:
 
  *   Start the daemon: sudo systemctl start leap.service
- *   Stop it: sudo systemctl start leap.service
- *   Get the status : sudo systemctl start leap.service
- *   Enable it: sudo systemctl start leap.service
+ *   Stop it: sudo systemctl stop leap.service
+ *   Get the status : sudo systemctl status leap.service
+ *   Enable it: sudo systemctl enable leap.service
 
 After start the daemon, if the lights of your leap are turned on, so far so good...
 
@@ -62,7 +61,6 @@ Binaries to execute:
  *   Recalibrate
  *   LeapControlPanel
  *   ScreenLocator
-
 
 ## Support? really? ##
 
