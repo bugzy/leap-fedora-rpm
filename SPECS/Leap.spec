@@ -55,6 +55,7 @@ systemctl daemon-reload
 
 %postun
 groupdel plugdev
+rm -f /etc/systemd/system/leap.service
 
 %clean
 %{__rm} -rf %{_srcrpmdir}/*
