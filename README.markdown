@@ -5,6 +5,8 @@ leap-fedora-rpm
 
 Since alien deb to rpm transformation does not work for fedora 19 (due package conflict) I've decided to make my own RPM packaging for Leap binaries.
 
+The RPM it's pretty basic, simple and flexible to be modified, by default master branch is for x86 and x64 branch for x64 arch.
+
 ## How to generate the RPM ##
 
 Due license issues I can't provide the RPM packaged already, but it's pretty easy to do it!.
@@ -26,6 +28,7 @@ make clean all
 
 <pre>
 git clone git@github.com:atejeda/leap-fedora-rpm.git
+git checkout x64
 tar xzf DeveloperSdk_LM_0.8.0.5300_Linux.gz
 cp Leap_Developer_Kit_0.8.0_5300_Linux/*.deb leap-fedora-rpm/SOURCES/
 cd leap-fedora-rpm
