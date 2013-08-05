@@ -1,0 +1,10 @@
+[Unit]
+Description=LeapMotion Daemon
+After=syslog.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/leapd
+
+[Install]
+WantedBy=multi-user.target
