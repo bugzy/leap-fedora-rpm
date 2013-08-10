@@ -27,8 +27,7 @@ make clean all
 ### For x64 ###
 
 <pre>
-git clone git@github.com:atejeda/leap-fedora-rpm.git
-git checkout x64
+git clone -b x64 git@github.com:atejeda/leap-fedora-rpm.git
 tar xzf DeveloperSdk_LM_0.8.0.5300_Linux.gz
 cp Leap_Developer_Kit_0.8.0_5300_Linux/*.deb leap-fedora-rpm/SOURCES/
 cd leap-fedora-rpm
