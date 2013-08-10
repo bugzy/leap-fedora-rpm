@@ -7,45 +7,60 @@
 
 %define __os_install_post %{nil}
 %define __jar_repack 0
+%define debug_package %{nil}
+%define __arch_install_post /usr/lib/rpm/check-buildroot
+%define __find_provides %{nil}
+%define __find_requires %{nil}
+%define _use_internal_dependency_generator 0
+Autoprov: 0
+Autoreq: 0
 
 Summary: Leap Motion re-packaging.
 Name: Leap
-Release: x86.5300.f19
+Release: 5300%{?dist}
 Version: 0.8.0
+BuildArch: %{_target_cpu}
 License: LeapMotion
 Group: System Environment/Daemon
 URL: http://www.leapmotion.com/
 Source0: %{name}
 BuildRoot: %{_topdir}/%{name}-root
 
-%define _leap_release_arch x86
-
 %description
 Leap Motion RPM package.
 More info at http://www.leapmotion.com/.
 
 %prep
-%{__mkdir} -p %{_srcrpmdir}
-%{__mkdir} -p %{_builddir}
-%{__mkdir} -p %{_srcrpmdir}
-%{__mkdir} -p %{_rpmdir}
-%{__mkdir} -p %{_builddir}/%{name}-%{version}
-%{__cp} %{_sourcedir}/%{name}-%{version}-%{_leap_release_arch}.deb %{_builddir}/
+%{__mkdir_p} %{_srcrpmdir}
+%{__mkdir_p} %{_builddir}
+%{__mkdir_p} %{_srcrpmdir}
+%{__mkdir_p} %{_rpmdir}
+%{__mkdir_p} %{_builddir}/%{name}-%{version}
+%if "%{_target_cpu}" == "x86_64"
+%{__cp} %{_sourcedir}/%{name}-%{version}-x64.deb %{_builddir}/
+%else
+%{__cp} %{_sourcedir}/%{name}-%{version}-x86.deb %{_builddir}/
+%endif
 %{__cp} -r %{_sourcedir}/%{name}-%{version}/* %{_builddir}/%{name}-%{version}/
 
 %setup -T -D
 
 %build
 cd %{_builddir}/
-ar p %{name}-%{version}-%{_leap_release_arch}.deb data.tar.gz | tar zx
-%{__mkdir} -p %{_builddir}/%{name}-%{version}/etc/udev/rules.d/
+%if "%{_target_cpu}" == "x86_64"
+%{__ar} p %{name}-%{version}-x64.deb data.tar.gz | %{__tar} zx
+%else
+%{__ar} p %{name}-%{version}-x86.deb data.tar.gz | %{__tar} zx
+%endif
+%{__mkdir_p} %{_builddir}/%{name}-%{version}/etc/udev/rules.d/
 %{__cp} lib/udev/rules.d/25-com-leapmotion-leap.rules %{_builddir}/%{name}-%{version}/etc/udev/rules.d/
 %{__cp} -r usr %{_builddir}/%{name}-%{version}/
-
+echo %{_build_vendor}
 
 %install
 %{__mkdir} -p $RPM_BUILD_ROOT
 %{__cp} -r %{_builddir}/%{name}-%{version}/* $RPM_BUILD_ROOT
+export NO_BRP_CHECK_RPATH=true
 
 %post
 groupadd plugdev
@@ -64,18 +79,20 @@ rm -f /etc/systemd/system/leap.service
 
 %files
 %defattr(-,root,root,-)
-/usr/bin/LeapControlPanel
-/usr/bin/Recalibrate
-/usr/bin/ScreenLocator
-/usr/bin/Visualizer
-/usr/bin/leapd
-/usr/lib/Leap
-/usr/share/Leap
+%{_bindir}/LeapControlPanel
+%{_bindir}/Recalibrate
+%{_bindir}/ScreenLocator
+%{_bindir}/Visualizer
+%{_bindir}/leapd
+%{_libdir}/Leap
+%{_datarootdir}/Leap
 /etc/udev/rules.d/25-com-leapmotion-leap.rules
 /lib/systemd/system/leap.service
 
 %doc
 
 %changelog
+* Mon Aug 10 2013 - alexis.tejeda@gmail.com
+- BuildArch based on the host cpu arch, disabled rpath check, added dist to the release.
 * Mon Aug 05 2013 - alexis.tejeda@gmail.com
 - Leap initial package definition (spec file).

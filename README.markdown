@@ -9,25 +9,16 @@ The RPM it's pretty basic, simple and flexible to be modified, by default master
 
 ## How to generate the RPM ##
 
-Due license issues I can't provide the RPM packaged already, but it's pretty easy to do it!.
+Due license issues I can't provide the RPM packaged already, but it's pretty easy to do it!. It's necessary to have installed Make and rpm-build devel packages.
 
-Go to https://developer.leapmotion.com/dashboard and download the binaries for Linux.
-Once you have the file, open a terminal in the folder where the file was downloaded and type/execute these lines:
+Go to https://developer.leapmotion.com/dashboard and download the binaries for Linux. Once you have the file, open a terminal in the folder where the file was downloaded and type/execute these lines:
 
-### For x86 ###
+### For x86 and x86_64 ###
+
+Spec file will build for the host rpm builder architecture, e.g.: if my machine/OS is based on 32 arch, it will build it for i386, no independent branches.
 
 <pre>
 git clone git@github.com:atejeda/leap-fedora-rpm.git
-tar xzf DeveloperSdk_LM_0.8.0.5300_Linux.gz
-cp Leap_Developer_Kit_0.8.0_5300_Linux/*.deb leap-fedora-rpm/SOURCES/
-cd leap-fedora-rpm
-make clean all
-</pre>
-
-### For x64 ###
-
-<pre>
-git clone -b x64 git@github.com:atejeda/leap-fedora-rpm.git
 tar xzf DeveloperSdk_LM_0.8.0.5300_Linux.gz
 cp Leap_Developer_Kit_0.8.0_5300_Linux/*.deb leap-fedora-rpm/SOURCES/
 cd leap-fedora-rpm
@@ -40,7 +31,7 @@ Generated RPM is located under RPMS folder, e.g.:
 
 <pre>
 sudo rpm -e Leap-0.8.0 # just in case
-sudo yum install -y RPMS/i686/Leap-0.8.0-x86.5300.f19.i686.rpm
+sudo yum install -y RPMS/i686/Leap-0.8.0-5300.fc19.i686.rpm
 </pre>
 
 ## Using it ##
