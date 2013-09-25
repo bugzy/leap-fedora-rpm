@@ -59,6 +59,9 @@ echo %{_build_vendor}
 
 %install
 %{__mkdir} -p $RPM_BUILD_ROOT
+%if "%{_target_cpu}" == "x86_64"
+%{__mv} %{_builddir}/%{name}-%{version}/%{_exec_prefix}/lib %{_builddir}/%{name}-%{version}/%{_libdir}
+%endif
 %{__cp} -r %{_builddir}/%{name}-%{version}/* $RPM_BUILD_ROOT
 export NO_BRP_CHECK_RPATH=true
 
