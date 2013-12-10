@@ -38,7 +38,7 @@ Generated RPM is located under RPMS folder, e.g.:
 
 <pre>
 sudo rpm -e Leap-0.8.0 # just in case
-sudo yum install -y RPMS/`uname -p`/Leap-1.0.9-8409.fc19.i686.rpm
+sudo yum install -y RPMS/`uname -p`/Leap-1.0.9-8409.fc19.`uname -p`.rpm
 </pre>
 
 ## Using it ##
