@@ -25,8 +25,9 @@ Spec file will build for the host rpm builder architecture, e.g.: if my machine/
 
 <pre>
 git clone git@github.com:atejeda/leap-fedora-rpm.git
-tar xzf DeveloperSdk_LM_0.8.0.5300_Linux.gz
-cp Leap_Developer_Kit_0.8.0_5300_Linux/*.deb leap-fedora-rpm/SOURCES/
+tar xzf Leap_Motion_Packages_release_public_linux_1*.tgz
+cp Leap_Motion_Packages_release_public_linux_1.*/Leap-1*-x64.deb leap-fedora-rpm/SOURCES/Leap-1.0.9-x64.deb
+cp Leap_Motion_Packages_release_public_linux_1.*/Leap-1*-x86.deb leap-fedora-rpm/SOURCES/Leap-1.0.9-x86.deb
 cd leap-fedora-rpm
 make clean all
 </pre>
@@ -37,7 +38,7 @@ Generated RPM is located under RPMS folder, e.g.:
 
 <pre>
 sudo rpm -e Leap-0.8.0 # just in case
-sudo yum install -y RPMS/`uname -p`/Leap-0.8.0-5300.fc19.i686.rpm
+sudo yum install -y RPMS/`uname -p`/Leap-1.0.9-8409.fc19.i686.rpm
 </pre>
 
 ## Using it ##
@@ -56,8 +57,7 @@ Binaries to execute:
  *   Visualizer
  *   Recalibrate
  *   LeapControlPanel
- *   ScreenLocator
-
+ 
 ## Support? really? ##
 
 If you want to use it, modify, extend it, follow the normal github workflow, means that must be fork it, merge it, or create a ticket if there's any bug.

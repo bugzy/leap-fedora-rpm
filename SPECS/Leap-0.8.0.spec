@@ -17,8 +17,8 @@ Autoreq: 0
 
 Summary: Leap Motion re-packaging.
 Name: Leap
-Release: 8409%{?dist}
-Version: 1.0.9
+Release: 5300%{?dist}
+Version: 0.8.0
 BuildArch: %{_target_cpu}
 License: LeapMotion
 Group: System Environment/Daemon
@@ -84,8 +84,9 @@ rm -f /etc/systemd/system/leap.service
 %defattr(-,root,root,-)
 %{_bindir}/LeapControlPanel
 %{_bindir}/Recalibrate
+%{_bindir}/ScreenLocator
 %{_bindir}/Visualizer
-%{_sbindir}/leapd
+%{_bindir}/leapd
 %{_libdir}/Leap
 %{_datarootdir}/Leap
 /etc/udev/rules.d/25-com-leapmotion-leap.rules
@@ -94,8 +95,6 @@ rm -f /etc/systemd/system/leap.service
 %doc
 
 %changelog
-* Fri Nov 01 2013 - bugzylittle@gmail.com
-- Leap updated package definition (spec file).
 * Mon Aug 10 2013 - alexis.tejeda@gmail.com
 - BuildArch based on the host cpu arch, disabled rpath check, added dist to the release.
 * Mon Aug 05 2013 - alexis.tejeda@gmail.com
