@@ -25,9 +25,9 @@ Spec file will build for the host rpm builder architecture, e.g.: if my machine/
 
 <pre>
 git clone git@github.com:atejeda/leap-fedora-rpm.git
-tar xzf Leap_Motion_Packages_release_public_linux_1*.tgz
-cp Leap_Motion_Packages_release_public_linux_1.*/Leap-1*-x64.deb leap-fedora-rpm/SOURCES/Leap-1.0.9-x64.deb
-cp Leap_Motion_Packages_release_public_linux_1.*/Leap-1*-x86.deb leap-fedora-rpm/SOURCES/Leap-1.0.9-x86.deb
+tar xzf Leap_Motion_Installer_Packages_release_public_linux_1*.tgz
+cp Leap_Motion_Packages_release_public_linux_1.*/Leap-1*-x64.deb leap-fedora-rpm/SOURCES/Leap-1.2.0-x64.deb
+cp Leap_Motion_Packages_release_public_linux_1.*/Leap-1*-x86.deb leap-fedora-rpm/SOURCES/Leap-1.2.0-x86.deb
 cd leap-fedora-rpm
 make clean all
 </pre>
@@ -37,8 +37,8 @@ make clean all
 Generated RPM is located under RPMS folder, e.g.:
 
 <pre>
-sudo rpm -e Leap-0.8.0 # just in case
-sudo yum install -y RPMS/`uname -p`/Leap-1.0.9-8409.fc19.i686.rpm
+sudo rpm -e Leap # uninstal older package just in case
+sudo yum install -y RPMS/`uname -p`/Leap-1.2.0-10943.fc20.`uname -p`.rpm
 </pre>
 
 ## Using it ##

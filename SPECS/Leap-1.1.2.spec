@@ -17,15 +17,15 @@ Autoreq: 0
 
 Summary: Leap Motion re-packaging.
 Name: Leap
-Release: 10943%{?dist}
-Version: 1.2.0
+Release: 9180%{?dist}
+Version: 1.1.2
 BuildArch: %{_target_cpu}
 License: LeapMotion
 Group: System Environment/Daemon
 URL: http://www.leapmotion.com/
 Source0: %{name}
 BuildRoot: %{_topdir}/%{name}-root
-Requires: qt5-qtbase qt5-qtwebkit qt5-qtscript qt5-qtsensors qt5-qtmultimedia qt5-qtlocation
+
 %description
 Leap Motion RPM package.
 More info at http://www.leapmotion.com/.
@@ -85,7 +85,6 @@ rm -f /etc/systemd/system/leap.service
 %{_bindir}/LeapControlPanel
 %{_bindir}/Recalibrate
 %{_bindir}/Visualizer
-%{_bindir}/platforms
 %{_sbindir}/leapd
 %{_libdir}/Leap
 %{_datarootdir}/Leap
@@ -95,8 +94,6 @@ rm -f /etc/systemd/system/leap.service
 %doc
 
 %changelog
-* Fri Apr 25 2014 - bugzylittle@gmail.com
-- Leap updated package definition (spec file) for 1.2.x.
 * Fri Dec 23 2013 - bugzylittle@gmail.com
 - Leap updated package definition (spec file) for 1.1.2.
 * Fri Nov 01 2013 - bugzylittle@gmail.com
