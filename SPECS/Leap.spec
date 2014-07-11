@@ -17,8 +17,8 @@ Autoreq: 0
 
 Summary: Leap Motion re-packaging.
 Name: Leap
-Release: 10943%{?dist}
-Version: 1.2.0
+Release: 17004%{?dist}
+Version: 2.0.3
 BuildArch: %{_target_cpu}
 License: LeapMotion
 Group: System Environment/Daemon
@@ -95,6 +95,8 @@ rm -f /etc/systemd/system/leap.service
 %doc
 
 %changelog
+* Thu Jul 10 2014 - bugzylittle@gmail.com
+- Leap updated package definition (spec file) for 2.0.x.
 * Fri Apr 25 2014 - bugzylittle@gmail.com
 - Leap updated package definition (spec file) for 1.2.x.
 * Fri Dec 23 2013 - bugzylittle@gmail.com

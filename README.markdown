@@ -3,7 +3,7 @@ leap-fedora-rpm
 
 # LeapMotion RPM package for Fedora. #
 
-Since alien deb to rpm transformation does not work for fedora 19 (due package conflict) I've decided to make my own RPM packaging for Leap binaries.
+Since alien deb to rpm transformation does not work for fedora 19 and 20 (due package conflict) I've decided to make my own RPM packaging for Leap binaries.
 
 The RPM it's pretty basic, simple and flexible to be modified, by default master branch is for x86 and x64 branch for x64 arch.
 
@@ -37,7 +37,7 @@ make clean all
 Generated RPM is located under RPMS folder, e.g.:
 
 <pre>
-sudo rpm -e Leap # uninstal older package just in case
+sudo yum remove Leap # uninstal older package just in case
 sudo yum install -y RPMS/`uname -p`/Leap-1.2.0-10943.fc20.`uname -p`.rpm
 </pre>
 
