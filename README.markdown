@@ -1,9 +1,13 @@
 leap-fedora-rpm
 ===============
 
+# 2.0.3+17004 #
+
+![2.0.3+17004](http://s27.postimg.org/6mvye0lwy/Screenshot_from_2014_07_15_18_45_45.jpg "2.0.3+17004")
+
 # LeapMotion RPM package for Fedora. #
 
-Since alien deb to rpm transformation does not work for fedora 19 (due package conflict) I've decided to make my own RPM packaging for Leap binaries.
+Since alien deb to RPM transformation does not work for fedora 19 and 20 (due package conflict) I've decided to make a RPM packaging for Leap binaries.
 
 The RPM it's pretty basic, simple and flexible to be modified, by default master branch is for x86 and x64 branch for x64 arch.
 
@@ -25,20 +29,21 @@ Spec file will build for the host rpm builder architecture, e.g.: if my machine/
 
 <pre>
 git clone git@github.com:atejeda/leap-fedora-rpm.git
-tar xzf Leap_Motion_Packages_release_public_linux_1*.tgz
-cp Leap_Motion_Packages_release_public_linux_1.*/Leap-1*-x64.deb leap-fedora-rpm/SOURCES/Leap-1.0.9-x64.deb
-cp Leap_Motion_Packages_release_public_linux_1.*/Leap-1*-x86.deb leap-fedora-rpm/SOURCES/Leap-1.0.9-x86.deb
+tar xzf LeapDeveloperKit_<VERSION>+<RELEASE>_linux.tgz *.deb
+mv LeapDeveloperKit_$LEAP_<VERSION>+<RELEASE>_linux/*.deb leap-fedora-rpm/SOURCES/
 cd leap-fedora-rpm
 make clean all
 </pre>
+
+Bear in mind that the code above can change depending on the version used, Leap SDK v1 was using another name convention (zip and unzipped folder).
 
 ## Install it ##
 
 Generated RPM is located under RPMS folder, e.g.:
 
 <pre>
-sudo rpm -e Leap-0.8.0 # just in case
-sudo yum install -y RPMS/`uname -p`/Leap-1.0.9-8409.fc19.`uname -p`.rpm
+sudo yum remove Leap # uninstal older package just in case
+sudo yum install -y RPMS/`uname -p`/Leap-<VERSION>-<RELEASE>.*.`uname -p`.rpm
 </pre>
 
 ## Using it ##
