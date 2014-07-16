@@ -1,9 +1,9 @@
 leap-fedora-rpm
 ===============
 
-# 2.0.3+17004 #
+## 2.0.3+17004 ##
 
-![2.0.3+17004](http://s27.postimg.org/6mvye0lwy/Screenshot_from_2014_07_15_18_45_45.jpg "2.0.3+17004")
+![](http://oi62.tinypic.com/iqxvk2.jpg "")
 
 # LeapMotion RPM package for Fedora. #
 
@@ -43,7 +43,7 @@ Generated RPM is located under RPMS folder, e.g.:
 
 <pre>
 sudo yum remove Leap # uninstal older package just in case
-sudo yum install -y RPMS/`uname -p`/Leap-<VERSION>-<RELEASE>.*.`uname -p`.rpm
+sudo yum install -y RPMS/`uname -p`/Leap-VERSION-RELEASE.*.`uname -p`.rpm
 </pre>
 
 ## Using it ##
