@@ -63,6 +63,6 @@ Binaries to execute:
  *   Recalibrate
  *   LeapControlPanel
  
-## Support? really? ##
+## Support? ##
 
 If you want to use it, modify, extend it, follow the normal github workflow, means that must be fork it, merge it, or create a ticket if there's any bug.
