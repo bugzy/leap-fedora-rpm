@@ -15,14 +15,10 @@
 Autoprov: 0
 Autoreq: 0
 
-# define leap version and release
-%define _leap_version 2.0.3 
-%define _leap_release 17004
-
 Summary: Leap Motion re-packaging.
 Name: Leap
-Release: %{_leap_release}%{?dist}
-Version: %{_leap_version}
+Release: 10943%{?dist}
+Version: 1.2.0
 BuildArch: %{_target_cpu}
 License: LeapMotion
 Group: System Environment/Daemon
@@ -41,9 +37,9 @@ More info at http://www.leapmotion.com/.
 %{__mkdir_p} %{_rpmdir}
 %{__mkdir_p} %{_builddir}/%{name}-%{version}
 %if "%{_target_cpu}" == "x86_64"
-%{__cp} %{_sourcedir}/%{name}-%{version}+%{_leap_release}-x64.deb %{_builddir}/
+%{__cp} %{_sourcedir}/%{name}-%{version}-x64.deb %{_builddir}/
 %else
-%{__cp} %{_sourcedir}/%{name}-%{version}+%{_leap_release}-x86.deb %{_builddir}/
+%{__cp} %{_sourcedir}/%{name}-%{version}-x86.deb %{_builddir}/
 %endif
 %{__cp} -r %{_sourcedir}/%{name}-%{version}/* %{_builddir}/%{name}-%{version}/
 
@@ -52,9 +48,9 @@ More info at http://www.leapmotion.com/.
 %build
 cd %{_builddir}/
 %if "%{_target_cpu}" == "x86_64"
-%{__ar} p %{_sourcedir}/%{name}-%{version}+%{_leap_release}-x64.deb data.tar.gz | %{__tar} zx
+%{__ar} p %{name}-%{version}-x64.deb data.tar.gz | %{__tar} zx
 %else
-%{__ar} p %{_sourcedir}/%{name}-%{version}+%{_leap_release}-x86.deb data.tar.gz | %{__tar} zx
+%{__ar} p %{name}-%{version}-x86.deb data.tar.gz | %{__tar} zx
 %endif
 %{__mkdir_p} %{_builddir}/%{name}-%{version}/etc/udev/rules.d/
 %{__cp} lib/udev/rules.d/25-com-leapmotion-leap.rules %{_builddir}/%{name}-%{version}/etc/udev/rules.d/
@@ -99,10 +95,6 @@ rm -f /etc/systemd/system/leap.service
 %doc
 
 %changelog
-* Tue Jul 15 2014 - alexis.tejeda@gmail.com
-- Fixed / updated release info for 2.0.x based on buzy update.
-* Thu Jul 10 2014 - bugzylittle@gmail.com
-- Leap updated package definition (spec file) for 2.0.x.
 * Fri Apr 25 2014 - bugzylittle@gmail.com
 - Leap updated package definition (spec file) for 1.2.x.
 * Fri Dec 23 2013 - bugzylittle@gmail.com
