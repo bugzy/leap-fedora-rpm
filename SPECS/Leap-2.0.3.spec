@@ -16,8 +16,8 @@ Autoprov: 0
 Autoreq: 0
 
 # define leap version and release
-%define _leap_version 2.1.1 
-%define _leap_release 21671
+%define _leap_version 2.0.3 
+%define _leap_release 17004
 
 Summary: Leap Motion re-packaging.
 Name: Leap
