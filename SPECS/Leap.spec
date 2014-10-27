@@ -16,8 +16,8 @@ Autoprov: 0
 Autoreq: 0
 
 # define leap version and release
-%define _leap_version 2.1.1 
-%define _leap_release 21671
+%define _leap_version 2.1.5 
+%define _leap_release 22699
 
 Summary: Leap Motion re-packaging.
 Name: Leap
@@ -45,16 +45,16 @@ More info at http://www.leapmotion.com/.
 %else
 %{__cp} %{_sourcedir}/%{name}-%{version}+%{_leap_release}-x86.deb %{_builddir}/
 %endif
-%{__cp} -r %{_sourcedir}/%{name}-%{version}/* %{_builddir}/%{name}-%{version}/
+%{__cp} -r %{_sourcedir}/%{name}/* %{_builddir}/%{name}-%{version}/
 
 %setup -T -D
 
 %build
 cd %{_builddir}/
 %if "%{_target_cpu}" == "x86_64"
-%{__ar} p %{_sourcedir}/%{name}-%{version}+%{_leap_release}-x64.deb data.tar.gz | %{__tar} zx
+%{__ar} p %{_sourcedir}/%{name}-%{version}+%{_leap_release}-x64.deb data.tar.xz | %{__tar} xJ
 %else
-%{__ar} p %{_sourcedir}/%{name}-%{version}+%{_leap_release}-x86.deb data.tar.gz | %{__tar} zx
+%{__ar} p %{_sourcedir}/%{name}-%{version}+%{_leap_release}-x86.deb data.tar.xz | %{__tar} xJ
 %endif
 %{__mkdir_p} %{_builddir}/%{name}-%{version}/etc/udev/rules.d/
 %{__cp} lib/udev/rules.d/25-com-leapmotion-leap.rules %{_builddir}/%{name}-%{version}/etc/udev/rules.d/
@@ -89,6 +89,8 @@ rm -f /etc/systemd/system/leap.service
 %{_bindir}/LeapControlPanel
 %{_bindir}/Recalibrate
 %{_bindir}/Visualizer
+%{_bindir}/Playground
+%{_bindir}/Playground_Data
 %{_bindir}/platforms
 %{_sbindir}/leapd
 %{_libdir}/Leap
@@ -99,17 +101,19 @@ rm -f /etc/systemd/system/leap.service
 %doc
 
 %changelog
+* Sun Oct 26 2014 - bugzylittle@gmail.com
+- Leap updated package definition (spec file) for 2.1.5 stable.
 * Tue Jul 15 2014 - alexis.tejeda@gmail.com
 - Fixed / updated release info for 2.0.x based on buzy update.
 * Thu Jul 10 2014 - bugzylittle@gmail.com
 - Leap updated package definition (spec file) for 2.0.x.
 * Fri Apr 25 2014 - bugzylittle@gmail.com
 - Leap updated package definition (spec file) for 1.2.x.
-* Fri Dec 23 2013 - bugzylittle@gmail.com
+* Mon Dec 23 2013 - bugzylittle@gmail.com
 - Leap updated package definition (spec file) for 1.1.2.
 * Fri Nov 01 2013 - bugzylittle@gmail.com
 - Leap updated package definition (spec file).
-* Mon Aug 10 2013 - alexis.tejeda@gmail.com
+* Sat Aug 10 2013 - alexis.tejeda@gmail.com
 - BuildArch based on the host cpu arch, disabled rpath check, added dist to the release.
 * Mon Aug 05 2013 - alexis.tejeda@gmail.com
 - Leap initial package definition (spec file).
