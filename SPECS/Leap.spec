@@ -45,7 +45,7 @@ More info at http://www.leapmotion.com/.
 %else
 %{__cp} %{_sourcedir}/%{name}-%{version}+%{_leap_release}-x86.deb %{_builddir}/
 %endif
-%{__cp} -r %{_sourcedir}/%{name}/* %{_builddir}/%{name}-%{version}/
+#%{__cp} -r %{_sourcedir}/%{name}/* %{_builddir}/%{name}-%{version}/
 
 %setup -T -D
 
@@ -59,6 +59,7 @@ cd %{_builddir}/
 %{__mkdir_p} %{_builddir}/%{name}-%{version}/etc/udev/rules.d/
 %{__cp} lib/udev/rules.d/25-com-leapmotion-leap.rules %{_builddir}/%{name}-%{version}/etc/udev/rules.d/
 %{__cp} -r usr %{_builddir}/%{name}-%{version}/
+%{__cp} -r %{_sourcedir}/%{name}-%{version}/* %{_builddir}/%{name}-%{version}/ 
 echo %{_build_vendor}
 
 %install
