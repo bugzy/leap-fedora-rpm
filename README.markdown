@@ -1,7 +1,7 @@
 leap-fedora-rpm
 ===============
 
-## 2.1.5+22699 ##
+## 2.2.2+24469 ##
 
 ![](http://oi62.tinypic.com/iqxvk2.jpg "")
 
