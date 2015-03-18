@@ -18,8 +18,8 @@ Autoprov: 0
 Autoreq: 0
 
 # define leap version and release
-%define _leap_version 2.2.2
-%define _leap_release 24469
+%define _leap_version 2.2.3
+%define _leap_release 25971
 
 Summary: Leap Motion re-packaging.
 Name: Leap
@@ -106,7 +106,7 @@ rm -f /etc/systemd/system/leap.service
 
 %changelog
 * Tue Mar 18 2015 - bugzylittle@gmail.com
-- Fixed missing files for 2.2.2
+- Leap updated package definition (spec file) for 2.2.3 and fix for 2.2.2
 * Fri Feb 13 2015 - makiftasova@gmail.com
 - Leap updated package definition (spec file) for 2.2.2 stable.
 * Sun Oct 26 2014 - bugzylittle@gmail.com
