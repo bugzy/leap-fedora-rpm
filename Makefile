@@ -14,7 +14,7 @@ RPM_INSTALL_ARG  += --nodigest
 RPM_INSTALL_ARG  += --nodeps
 RPM_INSTALL_ARG  += --nomd5
 
-SPECS             = Leap-2.2.3
+SPECS             = Leap-2.2.4
 
 all:
 	mkdir -p $(RPM_WORKING)/{BUILD,RPMS,SOURCES,SPECS,SRPMS,BROOT}
