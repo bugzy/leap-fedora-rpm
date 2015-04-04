@@ -1,5 +1,3 @@
-%define _unpackaged_files_terminate_build 0
-
 %define _topdir %(pwd)
 %define _builddir %{_topdir}/BUILD
 %define _rpmdir %{_topdir}/RPMS
@@ -18,8 +16,8 @@ Autoprov: 0
 Autoreq: 0
 
 # define leap version and release
-%define _leap_version 2.2.3
-%define _leap_release 25971
+%define _leap_version 2.2.4
+%define _leap_release 26750
 
 Summary: Leap Motion re-packaging.
 Name: Leap
@@ -105,6 +103,8 @@ rm -f /etc/systemd/system/leap.service
 %doc
 
 %changelog
+* Tue Mar 31 2015 - makiftasova@gmail.com
+- Leap updated package definition (spec file) for 2.2.4
 * Wed Mar 18 2015 - bugzylittle@gmail.com
 - Leap updated package definition (spec file) for 2.2.3 and fix for 2.2.2
 * Fri Feb 13 2015 - makiftasova@gmail.com
